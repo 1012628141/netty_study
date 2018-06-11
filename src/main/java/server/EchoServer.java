@@ -24,7 +24,7 @@ public class EchoServer {
         new EchoServer(port).start();
     }
 
-    public void start() throws Exception{
+    public void start() throws Exception {
         final EchoServerHandler serverHandler = new EchoServerHandler();
         EventLoopGroup group = new NioEventLoopGroup();
         try {
