@@ -10,11 +10,13 @@ import io.netty.util.CharsetUtil;
 @ChannelHandler.Sharable
 public class EchoClientHandle extends SimpleChannelInboundHandler<ByteBuf> {
 
+    /*客户端发送消息*/
     @Override
     public void channelActive(ChannelHandlerContext context) {
-        context.writeAndFlush(Unpooled.copiedBuffer("Netty rocks", CharsetUtil.UTF_8));
+        context.writeAndFlush(Unpooled.copiedBuffer("testRequetMapping", CharsetUtil.UTF_8));
     }
 
+    /*客户端接受消息*/
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
         System.out.println("Client received: " + byteBuf.toString(CharsetUtil.UTF_8));
